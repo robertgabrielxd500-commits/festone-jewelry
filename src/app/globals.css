@@ -12,10 +12,10 @@
   --color-cream: #fdfcfa;
   --color-stone: #6b6560;
   --color-stone-lt: #b8b0a4;
-  --font-display: var(--font-display), Georgia, serif;
-  --font-heading: var(--font-heading), Georgia, serif;
-  --font-body: var(--font-body), system-ui, sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-display: var(--font-display-raw), Georgia, serif;
+  --font-heading: var(--font-heading-raw), Georgia, serif;
+  --font-body: var(--font-body-raw), system-ui, sans-serif;
+  --font-mono: var(--font-mono-raw), monospace;
 }
 
 *,

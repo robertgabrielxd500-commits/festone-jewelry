@@ -6,27 +6,27 @@ import { Footer } from "@/components/footer";
 import { CartProvider } from "@/lib/cart-context";
 
 const bodoni = Bodoni_Moda({
-  variable: "--font-display",
+  variable: "--font-display-raw",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
 
 const cinzel = Cinzel({
-  variable: "--font-heading",
+  variable: "--font-heading-raw",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
 const raleway = Raleway({
-  variable: "--font-body",
+  variable: "--font-body-raw",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
 
 const dmMono = DM_Mono({
-  variable: "--font-mono",
+  variable: "--font-mono-raw",
   subsets: ["latin"],
   weight: ["300", "400"],
 });
