@@ -6,18 +6,18 @@ import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
   {
-    img: "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=1800&q=80&auto=format",
-    eyebrow: "Colecție nouă",
-    title: "Lumină, turnată în argint",
+    img: "https://images.unsplash.com/photo-1628058494685-6c2f796ac24a?w=1800&q=80&auto=format",
+    eyebrow: `Din 1993, în ${siteConfig.city}`,
+    title: "Argint 925, purtat cu mândrie",
   },
   {
     img: "https://images.unsplash.com/photo-1673279495269-bc0d925c0612?w=1800&q=80&auto=format",
-    eyebrow: "Made for everyday",
+    eyebrow: "Pentru fiecare zi",
     title: "Piese care se poartă zilnic",
   },
   {
-    img: "https://images.unsplash.com/photo-1726195641634-a8940e99719c?w=1800&q=80&auto=format",
-    eyebrow: "Din inima Iașiului",
+    img: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=1800&q=80&auto=format",
+    eyebrow: siteConfig.motto,
     title: "Bijuterii cu poveste, de aproape",
   },
 ];
@@ -80,7 +80,7 @@ export function Hero() {
         <div className="mt-14 flex items-center gap-6 font-mono text-[0.65rem] tracking-widest text-stone-lt animate-reveal-up" style={{ animationDelay: "0.3s" }}>
           <span className="text-gold">★ {siteConfig.rating}</span>
           <span>{siteConfig.reviewCount} recenzii Google</span>
-          <span className="hidden sm:inline">Argint 925 & Aur</span>
+          <span className="hidden sm:inline">Din {siteConfig.founded} · Argint 925</span>
         </div>
       </div>
 

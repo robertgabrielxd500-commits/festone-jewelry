@@ -118,6 +118,14 @@ body {
     opacity: 1;
   }
 }
+@keyframes line-grow-loader {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 @keyframes border-glow {
   0%,
   100% {
@@ -325,6 +333,14 @@ body {
   opacity: 1;
 }
 
+/* ── Gold orb ─────────────────────────────────────────── */
+.gold-orb {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.35) 0%, rgba(201, 168, 76, 0) 70%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
 /* ── Review stars ────────────────────────────────────── */
 .star {
   color: #c9a84c;
@@ -391,4 +407,17 @@ body {
   position: relative;
   border: 1px solid rgba(201, 168, 76, 0.25);
   animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes countdown-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+.animate-countdown {
+  animation: countdown-pulse 1s ease-in-out infinite;
 }

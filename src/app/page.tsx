@@ -1,17 +1,21 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
 import { NewsletterForm } from "@/components/home/newsletter-form";
+import { SpecialEditions } from "@/components/home/special-editions";
+import { VideoShowcase } from "@/components/home/video-showcase";
 import { ProductCard } from "@/components/product-card";
 import { CATEGORIES, PRODUCTS } from "@/lib/products";
 import { siteConfig } from "@/lib/site-config";
 
 const bestsellers = PRODUCTS.filter((p) => p.badge === "Bestseller");
+const limitedEditions = PRODUCTS.filter((p) => p.badge === "Ediție limitată");
+const yearsSince = new Date().getFullYear() - siteConfig.founded;
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  inele: "https://images.unsplash.com/photo-1639660680736-14b79f169a27?w=800&h=1000&fit=crop&auto=format",
+  bratari: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=800&h=1000&fit=crop&auto=format",
   coliere: "https://images.unsplash.com/photo-1673279495269-bc0d925c0612?w=800&h=1000&fit=crop&auto=format",
   cercei: "https://images.unsplash.com/photo-1598219062199-a940294982e7?w=800&h=1000&fit=crop&auto=format",
-  bratari: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=800&h=1000&fit=crop&auto=format",
+  piercing: "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=800&h=1000&fit=crop&auto=format",
 };
 
 export default function Home() {
@@ -24,8 +28,8 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <Stat value={`${siteConfig.rating}★`} label="Rating Google" />
           <Stat value={`${siteConfig.reviewCount}`} label="Recenzii" />
-          <Stat value="4" label="Colecții" />
-          <Stat value="1" label="Boutique · Iași" />
+          <Stat value={`${yearsSince}`} label={`Ani de la ${siteConfig.founded}`} />
+          <Stat value={`${siteConfig.regions.length}`} label="Orașe" />
         </div>
       </section>
 
@@ -73,24 +77,26 @@ export default function Home() {
         </div>
       </section>
 
+      <SpecialEditions products={limitedEditions} />
+
       {/* Brand story / materials */}
       <section className="border-y" style={{ borderColor: "rgba(201,168,76,0.12)", background: "#0F0E0D" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="font-mono text-[0.6rem] tracking-[0.3em] text-gold uppercase mb-5">Despre Festone</div>
             <h2 className="font-display italic text-3xl md:text-4xl text-cream leading-tight mb-6">
-              Bijuterii alese cu grijă, dintr-un magazin din inima Iașiului
+              Din {siteConfig.founded}, o afacere de familie din inima Iașiului
             </h2>
             <p className="text-stone-lt text-sm leading-relaxed mb-4">
-              Festone este un magazin de bijuterii situat pe Bulevardul Socola din Iași, cu o comunitate de peste{" "}
-              {siteConfig.reviewCount} clienți care ne-au lăsat recenzii pe Google, la un rating mediu de {siteConfig.rating}★.
+              Festone (Fest One) a pornit în {siteConfig.founded} în Iași, la inițiativa fondatorilor săi, și s-a
+              extins de-a lungul anilor într-un lanț regional prezent în {siteConfig.regions.join(", ")}.
             </p>
             <p className="text-stone-lt text-sm leading-relaxed mb-8">
-              Lucrăm cu argint 925 și aur 14k/18k, alături de pietre semiprețioase și zirconii șlefuite manual —
-              piese gândite să fie purtate zilnic, nu doar păstrate în cutie.
+              Lucrăm exclusiv cu argint 925 certificat — brățări, lanțuri, pandantive, cercei și piercing din titan.
+              Motto-ul nostru, de peste {yearsSince} de ani: <span className="text-gold">&bdquo;{siteConfig.motto}&rdquo;</span>
             </p>
             <a href={siteConfig.phoneHref} className="btn-primary">
-              Programează o vizită
+              Sună la magazin
             </a>
           </div>
           <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", background: "#141210" }}>
@@ -102,6 +108,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <VideoShowcase />
 
       {/* Review */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-24 text-center">

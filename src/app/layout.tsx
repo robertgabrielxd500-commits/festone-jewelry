@@ -4,6 +4,7 @@ import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { CartProvider } from "@/lib/cart-context";
+import { PageLoader } from "@/components/page-loader";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-display-raw",
@@ -63,11 +64,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bodoni.variable} ${cinzel.variable} ${raleway.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-void text-cream font-body">
-        <CartProvider>
-          <Nav />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </CartProvider>
+        <PageLoader>
+          <CartProvider>
+            <Nav />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </CartProvider>
+        </PageLoader>
       </body>
     </html>
   );
