@@ -1,0 +1,22 @@
+export const siteConfig = {
+  name: "Festone",
+  legalName: "Fest One S.R.L.",
+  tagline: "Bijuterii de argint și aur, din inimă Iașiului",
+  website: "https://www.festone.ro",
+  phone: "0232 271 859",
+  phoneHref: "tel:+40232271859",
+  address: "Bulevardul Socola 9, 700259 Iași",
+  city: "Iași",
+  rating: 4.5,
+  reviewCount: 119,
+  hours: [
+    { day: "Luni", hours: "09:00 – 18:00" },
+    { day: "Marți", hours: "09:00 – 18:00" },
+    { day: "Miercuri", hours: "09:00 – 18:00" },
+    { day: "Joi", hours: "09:00 – 18:00" },
+    { day: "Vineri", hours: "09:00 – 18:00" },
+    { day: "Sâmbătă", hours: "09:00 – 14:00" },
+    { day: "Duminică", hours: "Închis" },
+  ],
+  freeShippingThreshold: 400,
+} as const;
