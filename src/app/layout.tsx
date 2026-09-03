@@ -34,20 +34,21 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Festone — Bijuterii de argint și aur, Iași",
+    default: "Festone — Bijuterii din argint 925, Iași, din 1993",
     template: "%s | Festone",
   },
   description:
-    "Festone (festone.ro) — magazin de bijuterii în Iași, Bulevardul Socola 9. Bijuterii de argint și aur, colecții exclusive, peste 4.5★ din 119 recenzii.",
+    "Festone (Fest One), din 1993 — bijuterii din argint 925 în Iași, Bulevardul Socola 9. Brățări, lanțuri, pandantive, cercei și piercing. 4.5★ din 119 recenzii Google.",
   keywords: [
     "bijuterii Iași",
-    "magazin bijuterii",
     "bijuterii argint",
-    "bijuterii aur",
+    "argint 925",
     "Festone",
-    "inele",
-    "cercei",
-    "coliere",
+    "Fest One",
+    "brățări argint",
+    "lanțuri argint",
+    "cercei argint",
+    "piercing buric",
   ],
   metadataBase: new URL("https://festone.ro"),
   openGraph: {
