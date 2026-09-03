@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/products";
 import { useCart } from "@/lib/cart-context";
@@ -15,7 +16,14 @@ export function ProductDetail({ product }: { product: Product }) {
     <div className="grid md:grid-cols-2 gap-10 md:gap-16">
       <div>
         <div className="relative overflow-hidden mb-4" style={{ aspectRatio: "4/5", background: "#141210" }}>
-          <img src={product.images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
+          <Image
+            src={product.images[activeImg]}
+            alt={product.name}
+            fill
+            priority
+            sizes="(min-width: 768px) 45vw, 90vw"
+            className="object-cover"
+          />
           {product.badge && (
             <span
               className="absolute top-4 left-4 font-mono text-[0.6rem] tracking-widest uppercase px-2.5 py-1"
@@ -30,10 +38,10 @@ export function ProductDetail({ product }: { product: Product }) {
             <button
               key={img}
               onClick={() => setActiveImg(i)}
-              className="w-20 h-24 overflow-hidden border transition-colors"
+              className="relative w-20 h-24 overflow-hidden border transition-colors shrink-0"
               style={{ borderColor: activeImg === i ? "rgba(201,168,76,0.8)" : "rgba(107,101,96,0.25)" }}
             >
-              <img src={img} alt="" className="w-full h-full object-cover" />
+              <Image src={img} alt="" fill sizes="80px" className="object-cover" />
             </button>
           ))}
         </div>

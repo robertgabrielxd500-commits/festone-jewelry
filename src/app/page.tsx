@@ -1,13 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Hero } from "@/components/home/hero";
 import { NewsletterForm } from "@/components/home/newsletter-form";
 import { SpecialEditions } from "@/components/home/special-editions";
 import { VideoShowcase } from "@/components/home/video-showcase";
 import { ProductCard } from "@/components/product-card";
-import { CATEGORIES, PRODUCTS } from "@/lib/products";
+import { CATEGORIES, PRODUCTS, getOffers } from "@/lib/products";
 import { siteConfig } from "@/lib/site-config";
 
 const bestsellers = PRODUCTS.filter((p) => p.badge === "Bestseller");
+const offers = getOffers();
 const limitedEditions = PRODUCTS.filter((p) => p.badge === "Ediție limitată");
 const yearsSince = new Date().getFullYear() - siteConfig.founded;
 
@@ -40,10 +42,12 @@ export default function Home() {
           {CATEGORIES.map((c) => (
             <Link key={c.slug} href={`/shop?category=${c.slug}`} className="group block">
               <div className="relative overflow-hidden" style={{ aspectRatio: "3/4", background: "#141210" }}>
-                <img
+                <Image
                   src={CATEGORY_IMAGES[c.slug]}
                   alt={c.label}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 768px) 23vw, 45vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-5"
@@ -61,6 +65,18 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Offers */}
+      {offers.length > 0 && (
+        <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
+          <SectionHeading eyebrow="Prețuri accesibile" title="Oferte sub 100 lei" />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            {offers.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Best sellers */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
@@ -100,10 +116,12 @@ export default function Home() {
             </a>
           </div>
           <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", background: "#141210" }}>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=900&h=1100&fit=crop&auto=format"
               alt="Atelier de bijuterii"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(min-width: 768px) 45vw, 90vw"
+              className="object-cover"
             />
           </div>
         </div>

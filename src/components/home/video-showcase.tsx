@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const YOUTUBE_ID = "8EPFqerB6qU";
 
@@ -33,10 +34,12 @@ export function VideoShowcase() {
             className="group absolute inset-0 w-full h-full flex items-center justify-center"
             aria-label="Redă videoclipul"
           >
-            <img
+            <Image
               src={`https://img.youtube.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(min-width: 1024px) 1000px, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0" style={{ background: "rgba(7,7,7,0.45)" }} />
             <span

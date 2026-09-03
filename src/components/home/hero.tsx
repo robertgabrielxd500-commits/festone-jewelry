@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
@@ -38,10 +39,13 @@ export function Hero() {
           className="absolute inset-0 transition-opacity duration-1000"
           style={{ opacity: i === active ? 1 : 0 }}
         >
-          <img
+          <Image
             src={s.img}
             alt=""
-            className={`w-full h-full object-cover ${i === active ? "animate-hero-zoom" : ""}`}
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className={`object-cover ${i === active ? "animate-hero-zoom" : ""}`}
           />
         </div>
       ))}

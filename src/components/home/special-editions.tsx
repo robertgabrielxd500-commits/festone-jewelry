@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/products";
 
@@ -47,7 +48,13 @@ export function SpecialEditions({ products }: { products: Product[] }) {
           {products.map((p) => (
             <Link key={p.id} href={`/product/${p.slug}`} className="vip-card featured glass-gold p-5 block group">
               <div className="relative overflow-hidden mb-4" style={{ aspectRatio: "4/5", background: "#141210" }}>
-                <img src={p.image} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 <span
                   className="absolute top-3 left-3 font-mono text-[0.6rem] tracking-widest uppercase px-2.5 py-1"
                   style={{ background: "rgba(7,7,7,0.85)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.3)" }}

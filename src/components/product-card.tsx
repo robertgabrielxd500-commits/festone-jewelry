@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/products";
 import { useCart } from "@/lib/cart-context";
@@ -12,8 +13,21 @@ export function ProductCard({ product }: { product: Product }) {
     <div className="product-card group">
       <Link href={`/product/${product.slug}`}>
         <div className="card-img-wrap" style={{ aspectRatio: "4/5", background: "#141210" }}>
-          <img src={product.image} alt={product.name} className="card-img-primary w-full h-full object-cover" />
-          <img src={product.imageHover} alt="" aria-hidden className="card-img-hover w-full h-full object-cover" />
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(min-width: 1024px) 23vw, 45vw"
+            className="card-img-primary object-cover"
+          />
+          <Image
+            src={product.imageHover}
+            alt=""
+            aria-hidden
+            fill
+            sizes="(min-width: 1024px) 23vw, 45vw"
+            className="card-img-hover object-cover"
+          />
           {product.badge && (
             <span
               className="absolute top-3 left-3 font-mono text-[0.6rem] tracking-widest uppercase px-2.5 py-1"

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
 import { siteConfig } from "@/lib/site-config";
@@ -30,8 +31,8 @@ export default function CartPage() {
         <div className="md:col-span-2 flex flex-col gap-6">
           {lines.map(({ product, quantity }) => (
             <div key={product.id} className="flex gap-5 pb-6 border-b" style={{ borderColor: "rgba(107,101,96,0.2)" }}>
-              <Link href={`/product/${product.slug}`} className="shrink-0 w-24 h-28 overflow-hidden" style={{ background: "#141210" }}>
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              <Link href={`/product/${product.slug}`} className="relative shrink-0 w-24 h-28 overflow-hidden" style={{ background: "#141210" }}>
+                <Image src={product.image} alt={product.name} fill sizes="96px" className="object-cover" />
               </Link>
               <div className="flex-1 flex flex-col">
                 <Link href={`/product/${product.slug}`} className="font-heading text-sm text-cream hover:text-gold transition-colors">

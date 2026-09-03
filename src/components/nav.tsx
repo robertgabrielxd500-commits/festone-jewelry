@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { CATEGORIES, PRODUCTS } from "@/lib/products";
 import { siteConfig } from "@/lib/site-config";
 import { useCart } from "@/lib/cart-context";
@@ -152,10 +153,12 @@ export function Nav() {
               {catProducts.map((p) => (
                 <Link key={p.id} href={`/product/${p.slug}`} className="group">
                   <div className="relative overflow-hidden" style={{ aspectRatio: "3/4", background: "#141210" }}>
-                    <img
+                    <Image
                       src={p.image}
                       alt={p.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="20vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-2 font-heading text-xs text-cream group-hover:text-[#C9A84C] transition-colors">
