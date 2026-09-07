@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/home/hero";
+import { Marquee } from "@/components/home/marquee";
 import { NewsletterForm } from "@/components/home/newsletter-form";
 import { SpecialEditions } from "@/components/home/special-editions";
 import { VideoShowcase } from "@/components/home/video-showcase";
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Marquee />
 
       {/* Stats */}
       <section className="border-y" style={{ borderColor: "rgba(201,168,76,0.12)", background: "#0F0E0D" }}>

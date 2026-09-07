@@ -32,11 +32,6 @@ const SLIDES = [
     title: "Eleganță în fiecare detaliu",
   },
   {
-    img: "https://images.unsplash.com/photo-1672817569585-783a79212c1b?w=1800&q=80&auto=format",
-    eyebrow: "Piese statement",
-    title: "Un gest, o piesă memorabilă",
-  },
-  {
     img: "https://images.unsplash.com/photo-1598219062199-a940294982e7?w=1800&q=80&auto=format",
     eyebrow: "Detalii fine",
     title: "Rafinament, aproape de tine",
