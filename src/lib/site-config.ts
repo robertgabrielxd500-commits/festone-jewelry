@@ -8,6 +8,7 @@ export const siteConfig = {
   website: "https://www.festone.ro",
   phone: "0747 066 475",
   phoneHref: "tel:+40747066475",
+  whatsapp: "40747066475",
   email: "comenzi@festone.ro",
   address: "Bulevardul Socola 9, 700259 Iași",
   city: "Iași",

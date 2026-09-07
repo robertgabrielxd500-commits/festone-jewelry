@@ -69,6 +69,16 @@ export function Footer() {
                 Livrare & retur
               </Link>
             </li>
+            <li>
+              <Link href="/confidentialitate" className="text-sm text-stone-lt hover:text-gold transition-colors">
+                Confidențialitate
+              </Link>
+            </li>
+            <li>
+              <Link href="/termeni" className="text-sm text-stone-lt hover:text-gold transition-colors">
+                Termeni & Condiții
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

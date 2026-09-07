@@ -5,6 +5,8 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { CartProvider } from "@/lib/cart-context";
 import { PageLoader } from "@/components/page-loader";
+import { CookieConsent } from "@/components/cookie-consent";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-display-raw",
@@ -70,6 +72,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Nav />
             <main className="flex-1">{children}</main>
             <Footer />
+            <WhatsAppButton />
+            <CookieConsent />
           </CartProvider>
         </PageLoader>
       </body>
