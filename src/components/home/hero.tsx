@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
   {
-    img: "https://images.unsplash.com/photo-1628058494685-6c2f796ac24a?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1531089911069-46e11b5b1b5c?w=1800&q=80&auto=format",
     eyebrow: `Din 1993, în ${siteConfig.city}`,
     title: "Argint 925, purtat cu mândrie",
   },
@@ -17,38 +17,80 @@ const SLIDES = [
     title: "Piese care se poartă zilnic",
   },
   {
-    img: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1544261480-1b10d1bf0a9d?w=1800&q=80&auto=format",
     eyebrow: siteConfig.motto,
     title: "Bijuterii cu poveste, de aproape",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=1800&q=80&auto=format",
+    eyebrow: "Din argint, pentru tine",
+    title: "Piese lucrate pentru fiecare zi",
   },
 ];
 
 export function Hero() {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
+  const target = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % SLIDES.length), 6000);
     return () => clearInterval(id);
   }, []);
 
+  // Subtle pointer-parallax on the whole image stack — the hero should feel
+  // alive/tracked, not a static slideshow.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    function onMove(e: PointerEvent) {
+      const rect = section!.getBoundingClientRect();
+      target.current = {
+        x: (e.clientX - rect.left) / rect.width - 0.5,
+        y: (e.clientY - rect.top) / rect.height - 0.5,
+      };
+    }
+    function onLeave() {
+      target.current = { x: 0, y: 0 };
+    }
+
+    let raf: number;
+    function tick() {
+      current.current.x += (target.current.x - current.current.x) * 0.05;
+      current.current.y += (target.current.y - current.current.y) * 0.05;
+      if (layerRef.current) {
+        const { x, y } = current.current;
+        layerRef.current.style.transform = `scale(1.08) translate3d(${-x * 24}px, ${-y * 16}px, 0)`;
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+
+    section.addEventListener("pointermove", onMove);
+    section.addEventListener("pointerleave", onLeave);
+    return () => {
+      section.removeEventListener("pointermove", onMove);
+      section.removeEventListener("pointerleave", onLeave);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <section className="relative h-screen min-h-[640px] overflow-hidden bg-void">
-      {SLIDES.map((s, i) => (
-        <div
-          key={s.img}
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{ opacity: i === active ? 1 : 0 }}
-        >
-          <Image
-            src={s.img}
-            alt=""
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className={`object-cover ${i === active ? "animate-hero-zoom" : ""}`}
-          />
-        </div>
-      ))}
+    <section ref={sectionRef} className="relative h-screen min-h-[640px] overflow-hidden bg-void">
+      <div ref={layerRef} className="absolute inset-0 will-change-transform">
+        {SLIDES.map((s, i) => (
+          <div
+            key={s.img}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{ opacity: i === active ? 1 : 0 }}
+          >
+            <Image src={s.img} alt="" fill priority={i === 0} sizes="100vw" className="object-cover" />
+          </div>
+        ))}
+      </div>
 
       <div
         className="absolute inset-0"

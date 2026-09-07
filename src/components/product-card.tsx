@@ -52,7 +52,9 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
       <Link href={`/product/${product.slug}`} className="block mt-4">
         <div className="font-mono text-[0.6rem] tracking-[0.2em] text-stone-lt uppercase">{product.material}</div>
-        <div className="font-heading text-sm text-cream mt-1 group-hover:text-gold transition-colors">{product.name}</div>
+        <div className="font-display text-base tracking-wide text-cream mt-1.5 leading-snug group-hover:text-gold transition-colors">
+          {product.name}
+        </div>
         <div className="mt-1.5 flex items-center gap-2">
           <span className="font-body text-sm text-gold">{formatPrice(product.price)}</span>
           {product.compareAtPrice && (

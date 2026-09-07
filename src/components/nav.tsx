@@ -12,6 +12,7 @@ export function Nav() {
   const [megaOpen, setMegaOpen] = useState<number | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileEverOpened, setMobileEverOpened] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { count } = useCart();
@@ -34,7 +35,15 @@ export function Nav() {
     closeTimer.current = setTimeout(() => setMegaOpen(null), 180);
   };
 
-  const cat = megaOpen !== null ? CATEGORIES[megaOpen] : null;
+  // Keeps the last-open category rendered while the menu is closing, so the
+  // CSS transition (open -> closed) has content to animate instead of the
+  // element unmounting/mounting instantly with no transition to run.
+  const [displayedCat, setDisplayedCat] = useState<number | null>(null);
+  useEffect(() => {
+    if (megaOpen !== null) setDisplayedCat(megaOpen);
+  }, [megaOpen]);
+  const megaIsOpen = megaOpen !== null;
+  const cat = displayedCat !== null ? CATEGORIES[displayedCat] : null;
   const catProducts = cat ? PRODUCTS.filter((p) => p.category === cat.slug).slice(0, 4) : [];
 
   return (
@@ -117,7 +126,10 @@ export function Nav() {
 
             <button
               className="md:hidden flex flex-col gap-[5px]"
-              onClick={() => setMobileOpen(!mobileOpen)}
+              onClick={() => {
+                setMobileEverOpened(true);
+                setMobileOpen(!mobileOpen);
+              }}
               aria-label="Meniu"
             >
               {[0, 1, 2].map((i) => (
@@ -142,7 +154,7 @@ export function Nav() {
 
         {cat && (
           <div
-            className="mega-menu open glass"
+            className={`mega-menu ${megaIsOpen ? "open" : "closed"} glass`}
             style={{ borderBottom: "1px solid rgba(201,168,76,0.12)", borderTop: "1px solid rgba(201,168,76,0.08)" }}
             onMouseEnter={() => {
               if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -161,7 +173,7 @@ export function Nav() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
-                  <div className="mt-2 font-heading text-xs text-cream group-hover:text-[#C9A84C] transition-colors">
+                  <div className="mt-2 font-display text-[0.8rem] tracking-wide text-cream group-hover:text-[#C9A84C] transition-colors">
                     {p.name}
                   </div>
                 </Link>
@@ -176,8 +188,11 @@ export function Nav() {
           </div>
         )}
 
-        {mobileOpen && (
-          <div className="md:hidden glass border-t border-gold animate-fade-in" style={{ maxHeight: "80vh", overflowY: "auto" }}>
+        {mobileEverOpened && (
+          <div
+            className={`mobile-menu md:hidden glass border-t border-gold ${mobileOpen ? "open" : "closed"}`}
+            style={{ maxHeight: "80vh", overflowY: "auto" }}
+          >
             <div className="px-8 py-8 flex flex-col gap-1">
               {CATEGORIES.map((c) => (
                 <Link

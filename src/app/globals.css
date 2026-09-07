@@ -333,6 +333,21 @@ body {
   opacity: 1;
 }
 
+/* ── Mobile menu ─────────────────────────────────────── */
+.mobile-menu {
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.mobile-menu.closed {
+  transform: scaleY(0) translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  transform: scaleY(1) translateY(0);
+  opacity: 1;
+}
+
 /* ── Gold orb ─────────────────────────────────────────── */
 .gold-orb {
   border-radius: 50%;

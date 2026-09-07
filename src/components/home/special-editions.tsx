@@ -63,7 +63,9 @@ export function SpecialEditions({ products }: { products: Product[] }) {
                 </span>
               </div>
               <div className="font-mono text-[0.6rem] tracking-[0.2em] text-stone-lt uppercase">{p.material}</div>
-              <div className="font-heading text-sm text-cream mt-1 group-hover:text-gold transition-colors">{p.name}</div>
+              <div className="font-display text-base tracking-wide text-cream mt-1.5 leading-snug group-hover:text-gold transition-colors">
+                {p.name}
+              </div>
               <div className="font-body text-sm text-gold mt-1.5">{formatPrice(p.price)}</div>
             </Link>
           ))}
