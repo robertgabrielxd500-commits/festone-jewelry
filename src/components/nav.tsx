@@ -173,7 +173,7 @@ export function Nav() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
-                  <div className="mt-2 font-display text-[0.8rem] tracking-wide text-cream group-hover:text-[#C9A84C] transition-colors">
+                  <div className="mt-2 font-body font-medium text-[0.8rem] text-cream group-hover:text-[#C9A84C] transition-colors">
                     {p.name}
                   </div>
                 </Link>

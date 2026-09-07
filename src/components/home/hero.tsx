@@ -7,22 +7,22 @@ import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
   {
-    img: "https://images.unsplash.com/photo-1531089911069-46e11b5b1b5c?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1782786982363-5e0d841f8041?w=1800&q=80&auto=format",
     eyebrow: `Din 1993, în ${siteConfig.city}`,
     title: "Argint 925, purtat cu mândrie",
   },
   {
-    img: "https://images.unsplash.com/photo-1673279495269-bc0d925c0612?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1744722093742-aad22c7fa68b?w=1800&q=80&auto=format",
     eyebrow: "Pentru fiecare zi",
     title: "Piese care se poartă zilnic",
   },
   {
-    img: "https://images.unsplash.com/photo-1544261480-1b10d1bf0a9d?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1585053736987-f817dc225fc5?w=1800&q=80&auto=format",
     eyebrow: siteConfig.motto,
     title: "Bijuterii cu poveste, de aproape",
   },
   {
-    img: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1765464281313-b3844388b316?w=1800&q=80&auto=format",
     eyebrow: "Din argint, pentru tine",
     title: "Piese lucrate pentru fiecare zi",
   },
@@ -115,10 +115,24 @@ export function Hero() {
           {siteConfig.tagline} — {siteConfig.address}.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-reveal-up" style={{ animationDelay: "0.2s" }}>
-          <Link href="/shop" className="btn-primary">
+          <Link href="/shop" className="btn-primary group/btn">
             Vezi colecțiile
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="transition-transform duration-300 group-hover/btn:translate-x-1"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </Link>
           <a href={siteConfig.phoneHref} className="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
             Sună la magazin
           </a>
         </div>

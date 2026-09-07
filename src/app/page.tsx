@@ -14,10 +14,10 @@ const limitedEditions = PRODUCTS.filter((p) => p.badge === "Ediție limitată");
 const yearsSince = new Date().getFullYear() - siteConfig.founded;
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  bratari: "https://images.unsplash.com/photo-1639660680788-bf160240864e?w=800&h=1000&fit=crop&auto=format",
-  coliere: "https://images.unsplash.com/photo-1673279495269-bc0d925c0612?w=800&h=1000&fit=crop&auto=format",
-  cercei: "https://images.unsplash.com/photo-1598219062199-a940294982e7?w=800&h=1000&fit=crop&auto=format",
-  piercing: "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=800&h=1000&fit=crop&auto=format",
+  bratari: "https://images.unsplash.com/photo-1744722093742-aad22c7fa68b?w=800&h=1000&fit=crop&auto=format",
+  coliere: "https://images.unsplash.com/photo-1585053736987-f817dc225fc5?w=800&h=1000&fit=crop&auto=format",
+  cercei: "https://images.unsplash.com/photo-1765464281313-b3844388b316?w=800&h=1000&fit=crop&auto=format",
+  piercing: "https://images.unsplash.com/photo-1786835567798-2c058ca3d8ca?w=800&h=1000&fit=crop&auto=format",
 };
 
 export default function Home() {
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
           <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", background: "#141210" }}>
             <Image
-              src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=900&h=1100&fit=crop&auto=format"
+              src="https://images.unsplash.com/photo-1628058494685-6c2f796ac24a?w=900&h=1100&fit=crop&auto=format"
               alt="Atelier de bijuterii"
               fill
               sizes="(min-width: 768px) 45vw, 90vw"
