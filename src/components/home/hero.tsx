@@ -7,9 +7,14 @@ import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
   {
-    img: "https://images.unsplash.com/photo-1736396979761-4f822cf25120?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1782786982363-5e0d841f8041?w=1800&q=80&auto=format",
     eyebrow: `Din 1993, în ${siteConfig.city}`,
     title: "Argint 925, purtat cu mândrie",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1744722093742-aad22c7fa68b?w=1800&q=80&auto=format",
+    eyebrow: "Pentru fiecare zi",
+    title: "Piese care se poartă zilnic",
   },
   {
     img: "https://images.unsplash.com/photo-1585053736987-f817dc225fc5?w=1800&q=80&auto=format",
@@ -20,21 +25,6 @@ const SLIDES = [
     img: "https://images.unsplash.com/photo-1765464281313-b3844388b316?w=1800&q=80&auto=format",
     eyebrow: "Din argint, pentru tine",
     title: "Piese lucrate pentru fiecare zi",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1753093329977-d950f394b215?w=1800&q=80&auto=format",
-    eyebrow: "Colecție de seară",
-    title: "Eleganță în fiecare detaliu",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1598219062199-a940294982e7?w=1800&q=80&auto=format",
-    eyebrow: "Detalii fine",
-    title: "Rafinament, aproape de tine",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1734019523113-501bfba06c5c?w=1800&q=80&auto=format",
-    eyebrow: "Ediții speciale",
-    title: "Piese care rămân în timp",
   },
 ];
 
