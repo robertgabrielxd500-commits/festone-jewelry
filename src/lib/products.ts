@@ -279,6 +279,25 @@ export const PRODUCTS: Product[] = [
     reviewCount: 7,
     inStock: true,
   },
+  {
+    id: 14,
+    slug: "bratara-argint-925-lant-serpuit",
+    name: "Brățară argint 925, lanț șerpuit",
+    category: "bratari",
+    material: "Argint 925",
+    price: 195,
+    image: "https://images.unsplash.com/photo-1786052351994-37c1af4c55d7?w=800&h=1000&fit=crop&auto=format",
+    imageHover: "https://images.unsplash.com/photo-1786052348368-9c23c72205f9?w=800&h=1000&fit=crop&auto=format",
+    images: [
+      "https://images.unsplash.com/photo-1786052351994-37c1af4c55d7?w=1200&h=1400&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1786052348368-9c23c72205f9?w=1200&h=1400&fit=crop&auto=format",
+    ],
+    description: "Brățară cu lanț șerpuit din argint 925, flexibilă și confortabilă la purtare zilnică.",
+    details: ["Argint 925", "Lanț flexibil tip șarpe", "Închizătoare cu za de siguranță"],
+    rating: 4.6,
+    reviewCount: 12,
+    inStock: true,
+  },
 ];
 
 export function getOffers(maxPrice = 100) {
