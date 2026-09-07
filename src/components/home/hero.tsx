@@ -26,6 +26,26 @@ const SLIDES = [
     eyebrow: "În boutique-ul nostru",
     title: "Lumină caldă, piese alese cu grijă",
   },
+  {
+    img: "https://images.unsplash.com/photo-1753093329977-d950f394b215?w=1800&q=80&auto=format",
+    eyebrow: "Colecție de seară",
+    title: "Eleganță în fiecare detaliu",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1672817569585-783a79212c1b?w=1800&q=80&auto=format",
+    eyebrow: "Piese statement",
+    title: "Un gest, o piesă memorabilă",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1598219062199-a940294982e7?w=1800&q=80&auto=format",
+    eyebrow: "Detalii fine",
+    title: "Rafinament, aproape de tine",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1734019523113-501bfba06c5c?w=1800&q=80&auto=format",
+    eyebrow: "Ediții speciale",
+    title: "Piese care rămân în timp",
+  },
 ];
 
 export function Hero() {
@@ -107,7 +127,7 @@ export function Hero() {
         </div>
         <h1
           key={active}
-          className="font-display text-5xl sm:text-6xl md:text-7xl italic text-cream max-w-3xl leading-[1.1] animate-reveal-up"
+          className="text-gold-shimmer font-display text-5xl sm:text-6xl md:text-7xl italic max-w-3xl leading-[1.1] animate-reveal-up"
         >
           {SLIDES[active].title}
         </h1>
