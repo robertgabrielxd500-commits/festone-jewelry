@@ -10,28 +10,52 @@ export function ProductDetail({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [wishlisted, setWishlisted] = useState(false);
   const { add } = useCart();
 
   return (
     <div className="grid md:grid-cols-2 gap-10 md:gap-16">
       <div>
-        <div className="relative overflow-hidden mb-4" style={{ aspectRatio: "4/5", background: "#141210" }}>
-          <Image
-            src={product.images[activeImg]}
-            alt={product.name}
-            fill
-            priority
-            sizes="(min-width: 768px) 45vw, 90vw"
-            className="object-cover"
+        <div className="relative" style={{ padding: "0.75rem" }}>
+          {/* Soft gold glow behind the photo */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              inset: -24,
+              background: "radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.16) 0%, transparent 70%)",
+            }}
           />
-          {product.badge && (
-            <span
-              className="absolute top-4 left-4 font-mono text-[0.6rem] tracking-widest uppercase px-2.5 py-1"
-              style={{ background: "rgba(7,7,7,0.85)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.3)" }}
+          <div className="relative overflow-hidden mb-4" style={{ aspectRatio: "4/5", background: "#141210" }}>
+            <Image
+              src={product.images[activeImg]}
+              alt={product.name}
+              fill
+              priority
+              sizes="(min-width: 768px) 45vw, 90vw"
+              className="object-cover"
+            />
+            {product.badge && (
+              <span
+                className="absolute top-4 left-4 font-mono text-[0.6rem] tracking-widest uppercase px-2.5 py-1"
+                style={{ background: "rgba(7,7,7,0.85)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.3)" }}
+              >
+                {product.badge}
+              </span>
+            )}
+            {/* Floating material tag, bottom-left */}
+            <div
+              className="absolute bottom-4 left-4 px-4 py-2.5"
+              style={{ background: "rgba(7,7,7,0.88)", backdropFilter: "blur(12px)", border: "1px solid rgba(201,168,76,0.25)" }}
             >
-              {product.badge}
-            </span>
-          )}
+              <div className="font-display italic text-sm text-gold">{product.material}</div>
+              <div className="font-mono text-[0.5rem] tracking-[0.2em] uppercase text-stone-lt mt-0.5">
+                {product.category === "piercing" ? "Chirurgical · Hipoalergenic" : "Certificat · Festone"}
+              </div>
+            </div>
+          </div>
+          {/* Gold corner accents */}
+          <div className="absolute pointer-events-none" style={{ top: 0, left: 0, width: 40, height: 40, borderTop: "1px solid rgba(201,168,76,0.6)", borderLeft: "1px solid rgba(201,168,76,0.6)" }} />
+          <div className="absolute pointer-events-none" style={{ bottom: 0, right: 0, width: 40, height: 40, borderBottom: "1px solid rgba(201,168,76,0.6)", borderRight: "1px solid rgba(201,168,76,0.6)" }} />
         </div>
         <div className="flex gap-3">
           {product.images.map((img, i) => (
@@ -70,7 +94,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
         <p className="text-stone-lt text-sm leading-relaxed mb-6">{product.description}</p>
 
-        <ul className="flex flex-col gap-2 mb-8">
+        <ul className="flex flex-col gap-2 mb-4">
           {product.details.map((d) => (
             <li key={d} className="flex items-center gap-3 text-sm text-stone-lt">
               <span className="w-1 h-1 rounded-full bg-gold shrink-0" />
@@ -78,6 +102,17 @@ export function ProductDetail({ product }: { product: Product }) {
             </li>
           ))}
         </ul>
+
+        <button
+          onClick={() => setWishlisted((w) => !w)}
+          className="flex items-center gap-2 mb-8 font-mono text-[0.7rem] tracking-[0.15em] uppercase transition-colors"
+          style={{ color: wishlisted ? "#C9A84C" : "#6B6560" }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill={wishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          {wishlisted ? "Salvat la favorite" : "Adaugă la favorite"}
+        </button>
 
         <div className="flex items-center gap-4 mb-6">
           <div className="flex items-center border" style={{ borderColor: "rgba(107,101,96,0.3)" }}>
