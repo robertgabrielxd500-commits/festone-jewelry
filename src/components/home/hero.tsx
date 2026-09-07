@@ -21,6 +21,11 @@ const SLIDES = [
     eyebrow: "Din argint, pentru tine",
     title: "Piese lucrate pentru fiecare zi",
   },
+  {
+    img: "https://images.unsplash.com/photo-1775021723698-b9afeaa084d1?w=1800&q=80&auto=format",
+    eyebrow: "În boutique-ul nostru",
+    title: "Lumină caldă, piese alese cu grijă",
+  },
 ];
 
 export function Hero() {
