@@ -22,7 +22,7 @@ const SLIDES = [
     title: "Bijuterii cu poveste, de aproape",
   },
   {
-    img: "https://images.unsplash.com/photo-1765464281313-b3844388b316?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1736396979761-4f822cf25120?w=1800&q=80&auto=format",
     eyebrow: "Din argint, pentru tine",
     title: "Piese lucrate pentru fiecare zi",
   },
