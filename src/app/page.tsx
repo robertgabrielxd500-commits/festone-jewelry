@@ -117,8 +117,8 @@ export default function Home() {
           </div>
           <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", background: "#141210" }}>
             <Image
-              src="https://images.unsplash.com/photo-1628058494685-6c2f796ac24a?w=900&h=1100&fit=crop&auto=format"
-              alt="Atelier de bijuterii"
+              src="https://images.unsplash.com/photo-1736396979761-4f822cf25120?w=900&h=1100&fit=crop&auto=format"
+              alt="Bijuterii Festone"
               fill
               sizes="(min-width: 768px) 45vw, 90vw"
               className="object-cover"
