@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const SLIDES = [
   {
-    img: "https://images.unsplash.com/photo-1736396979761-4f822cf25120?w=1800&q=80&auto=format",
+    img: "https://images.unsplash.com/photo-1753093329977-d950f394b215?w=1800&q=80&auto=format",
     eyebrow: `Din 1993, în ${siteConfig.city}`,
     title: "Argint 925, purtat cu mândrie",
   },
