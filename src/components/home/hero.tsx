@@ -22,11 +22,6 @@ const SLIDES = [
     title: "Piese lucrate pentru fiecare zi",
   },
   {
-    img: "https://images.unsplash.com/photo-1775021723698-b9afeaa084d1?w=1800&q=80&auto=format",
-    eyebrow: "În boutique-ul nostru",
-    title: "Lumină caldă, piese alese cu grijă",
-  },
-  {
     img: "https://images.unsplash.com/photo-1753093329977-d950f394b215?w=1800&q=80&auto=format",
     eyebrow: "Colecție de seară",
     title: "Eleganță în fiecare detaliu",
@@ -114,7 +109,6 @@ export function Hero() {
 
       {/* Floating gold orbs */}
       <div className="gold-orb absolute w-64 h-64 -top-10 -right-10 animate-float" />
-      <div className="gold-orb absolute w-40 h-40 bottom-20 left-10 animate-float" style={{ animationDelay: "2s" }} />
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
         <div className="font-mono text-xs tracking-[0.3em] uppercase text-gold mb-6 animate-reveal-up">
